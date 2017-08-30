@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Train Scheduler</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
 
-	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="assets/logic.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Train Scheduler</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">Choo Choo</h1>
+    <p class="lead"></p>
+  </div>
+</div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Current Train Schedule</div>
+        
+        
+        <table class="table table- responsive table-striped table-bordered">
+        <th>Train Time</th>
+        <th>Destination</th>
+        <th>Frequency (min)</th>
+        <th>Next Arrival</th>
+        <th>Minutes Away</th>
+        </table>
+    
+    </div>
+    
+    <form>
+  <div class="panel-heading">Add Train</div>
+  <div class="form-group form-control-sm">
+    <label class="form-control-label form-control-sm" for="formGroupExampleInput">Train Name</label>
+    <input type="text" class="form-control form-control-sm" id="formGroupExampleInput">
+  </div>
+  <div class="form-group form-control-sm">
+    <label class="form-control-label form-control-sm" for="formGroupExampleInput2">Destination</label>
+    <input type="text" class="form-control form-control-sm" id="formGroupExampleInput2">
+  </div>
+  <div class="form-group form-control-sm">
+    <label class="form-control-label form-control-sm" for="formGroupExampleInput3">First Train Time military time</label>
+    <input type="time" class="form-control form-control-sm" id="formGroupExampleInput3">
+  </div>
+  <div class="form-group form-control-sm">
+    <label class="form-control-label form-control-sm" for="formGroupExampleInput4">Frequency (min)</label>
+    <input type="number" class="form-control form-control-sm" id="formGroupExampleInput4">
+  </div>
+	<button type="submit" class="btn btn-info">Add</button>
+</form>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/logic.js"></script>
 </body>
+
 </html>

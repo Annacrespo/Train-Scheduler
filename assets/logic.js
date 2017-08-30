@@ -8,19 +8,12 @@ var config = {
     messagingSenderId: "1098822023696"
   };
 firebase.initializeApp(config);
-
-firebase.database().ref().on("value", function(snapshot) {
-  console.log(snapshot.val());
-
-})
-
+console.log(firebase);
 var database = firebase.database();
-
-var connectionsRef = database.ref("/connections");
-var connectedRef = database.ref(".info/connected");
-
-
-connectedRef.on("value", function(snap) {
+firebase.database().ref().on("value", function(snapshot) {
+  // console.log(snapshot.val());
 
 })
+
+
 
