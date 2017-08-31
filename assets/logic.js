@@ -55,4 +55,9 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
     var trainTime = childSnapshot.val().time;
     var trainFrequency = childSnapshot.val().frequency;
 
-})
+    
+
+$("#train-table").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" +
+  trainTime + "</td><td>" + trainFrequency + "</td><td>" + nextArrival + "</td><td>" + minutesAway + "</td></tr>");
+
+});
