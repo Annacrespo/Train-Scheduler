@@ -9,7 +9,6 @@ var config = {
 };
 
 firebase.initializeApp(config);
-console.log(firebase);
 var database = firebase.database();
 
 firebase.database().ref().on("value", function(snapshot) {
@@ -23,12 +22,6 @@ $("#submitButton").on("click", function(event) {
     var destination = $("#formGroupDestination").val().trim();
     var trainTime = $("#formGroupTime").val().trim();
     var trainFrequency = $("#formGroupFrequency").val().trim();
-
-    console.log(name);
-    console.log(destination);
-    console.log(trainTime);
-    console.log(trainFrequency);
-
     var newTrain = {
         name: trainName,
         dest: destination,
@@ -36,6 +29,7 @@ $("#submitButton").on("click", function(event) {
         frequency: trainFrequency
 
     };
+    
     database.ref().push(newTrain)
 
     alert("New Train added!");
@@ -47,17 +41,25 @@ $("#submitButton").on("click", function(event) {
 })
 
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
-
-    console.log(childSnapshot.val());
-
     var trainName = childSnapshot.val().name;
     var destination = childSnapshot.val().dest;
     var trainTime = childSnapshot.val().time;
     var trainFrequency = childSnapshot.val().frequency;
+    
+    var currentTime = moment();
+    var trainTimeObject = moment(trainTime, "HH:mm");
+    var timeFromStart = currentTime.diff(trainTimeObject, 'minutes');
+    // var minutesAway = Math.ceil(timeFromStart / trainFrequency);
+    // var minutesNextTrain = (trainTime + trainFrequency);
+    // var nextArrival = moment(minutesNextTrain, "HH:mm");
+    var trainRemainder = (timeFromStart % trainFrequency);
+    var minutesAway = (trainFrequency - trainRemainder);
+    var nextArrival = moment().add(minutesAway, 'minutes').format('HH:mm');
 
     
-
 $("#train-table").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" +
   trainTime + "</td><td>" + trainFrequency + "</td><td>" + nextArrival + "</td><td>" + minutesAway + "</td></tr>");
 
 });
+
+

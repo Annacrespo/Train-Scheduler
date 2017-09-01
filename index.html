@@ -6,22 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Train Scheduler</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
 <body>
     <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-3">Choo Choo</h1>
+    <h1 class="display-3"><i class="fa fa-train" aria-hidden="true"></i>Choo Choo<i class="fa fa-train" aria-hidden="true"></i></h1>
     <p class="lead"></p>
   </div>
 </div>
     <div class="panel panel-default">
-        <div class="panel-heading">Current Train Schedule</div>
+        <div class="panel-heading"></i></span>Current Train Schedule</div>
         
         
         <table class="table table- responsive table-striped table-bordered" id="train-table">
-        <th>Train Time</th>
+        <th>Train Name</th>
         <th>Destination</th>
         <th>Time</th>
         <th>Frequency (min)</th>
@@ -42,15 +44,16 @@
     <input type="text" class="form-control form-control-sm" id="formGroupDestination">
   </div>
   <div class="form-group form-control-sm">
-    <label class="form-control-label form-control-sm" for="formGroupExampleInput3">First Train Time military time</label>
+    <label class="form-control-label form-control-sm" for="formGroupExampleInput3">First Train Time</label>
     <input type="time" class="form-control form-control-sm" id="formGroupTime">
   </div>
   <div class="form-group form-control-sm">
     <label class="form-control-label form-control-sm" for="formGroupExampleInput4">Frequency (min)</label>
-    <input type="number" class="form-control form-control-sm" id="formGroupFrequency">
+    <input type="number" step="1" class="form-control form-control-sm" id="formGroupFrequency">
   </div>
 	<button type="submit" class="btn btn-info" id="submitButton">Add</button>
 </form>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/logic.js"></script>
